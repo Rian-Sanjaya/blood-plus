@@ -1,13 +1,231 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* html {
+  overflow-x: hidden;
+} */
+
+html, body {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-size: 16px;
+  padding: 0; */
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-moz-scrollbars {
+  display:none;
+}
+
+.main-wrapper {
+  max-width: 375px;
+  border: 1px solid;
+  margin: 100px auto 0;
+  height: 789px;
+  position: relative;
+  /* background: #23231f; */
+  background-image: url('./assets//images/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  overflow-y: scroll;
+}
+
+/* .content-wrapper {
+  margin-bottom: 75px;
+} */
+
+.menu-box {
+  position: fixed;
+  bottom: 0;
+  width: 375px;
+}
+
+.menu-container {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  background-color: #020202;
+}
+
+.menu-container li {
+  display: inline-block;
+  width: 33.33%;
+  text-align: center;
+  color: #fff;
+  padding: 10px 0;
+  cursor: pointer;  
+}
+
+.card-box {
+  display: flex;
+  background: #fff;
+  width: 85%;
+  margin: 15px auto;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+.card-box:hover {
+  background: #ecece7;
+}
+
+.map-back, .map-call {
+  opacity: 0.7;
+  transition: opacity .3s ease;
+  cursor: pointer;
+}
+
+.map-back:hover, .map-call:hover {
+  opacity: 1;
+}
+
+.request-posting {
+  width: 100%;
+  height: 48px;
+  color: rgb(255, 255, 255);
+  background: #ffb000;
+  border: none;
+  border-radius: 22px;
+  font-size: 21px;
+  outline: none;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+.request-posting:hover {
+  background: #c10606;
+}
+
+.gol-darah-radio {
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 30%;
+}
+
+/* Hide the browser's default radio button */
+.gol-darah-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.gol-darah-radio .custom-radio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.gol-darah-radio .custom-radio.darahA {
+  background-image: url('./assets/images/Agray.png');
+}
+
+.gol-darah-radio input:checked ~ .custom-radio.darahA {
+  background-image: url('./assets//images/A.png')
+}
+
+.gol-darah-radio .custom-radio.darahAminus {
+  background-image: url('./assets/images/A-gray.png');
+}
+
+.gol-darah-radio input:checked ~ .custom-radio.darahAminus {
+  background-image: url('./assets//images/A-.png')
+}
+
+.gol-darah-radio .custom-radio.darahAB {
+  background-image: url('./assets/images/ABgray.png');
+}
+
+.gol-darah-radio input:checked ~ .custom-radio.darahAB {
+  background-image: url('./assets//images/AB.png')
+}
+
+.gol-darah-radio .custom-radio.darahABminus {
+  background-image: url('./assets/images/AB-gray.png');
+}
+
+.gol-darah-radio input:checked ~ .custom-radio.darahABminus {
+  background-image: url('./assets//images/AB-.png')
+}
+
+.gol-darah-radio .custom-radio.darahB {
+  background-image: url('./assets/images/Bgray.png');
+}
+
+.gol-darah-radio input:checked ~ .custom-radio.darahB {
+  background-image: url('./assets//images/B.png')
+}
+
+.gol-darah-radio .custom-radio.darahBminus {
+  background-image: url('./assets/images/B-gray.png');
+}
+
+.gol-darah-radio input:checked ~ .custom-radio.darahBminus {
+  background-image: url('./assets//images/B-.png')
+}
+
+.gol-darah-radio .custom-radio.darahO {
+  background-image: url('./assets/images/Ogray.png');
+}
+
+.gol-darah-radio input:checked ~ .custom-radio.darahO {
+  background-image: url('./assets//images/O.png')
+}
+
+.gol-darah-radio .custom-radio.darahOminus {
+  background-image: url('./assets/images/O-gray.png');
+}
+
+.gol-darah-radio input:checked ~ .custom-radio.darahOminus {
+  background-image: url('./assets//images/O-.png')
+}
+
+.profil-label {
+  color: #fff;
+  font-weight: 100;
+}
+
+.profil-isi {
+  color: #fff;
+  font-weight: 900;
+}
+
+.update-profil {
+  width: 100%;
+  height: 48px;
+  color: rgb(255, 255, 255);
+  background: #ffb000;
+  border: none;
+  border-radius: 22px;
+  font-size: 21px;
+  outline: none;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+.update-profil:hover {
+  background: #c10606;
 }
