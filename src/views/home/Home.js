@@ -25,6 +25,30 @@ const Home = () => {
       })
     ])
     .then(axios.spread((res1, res2, res3) => {
+      res1.data.sort(function(a, b) {
+        if (a.updated_at < b.updated_at) {
+          return 1;
+        }
+
+        if (a.updated_at > b.updated_at) {
+          return -1;
+        }
+
+        return 0;
+      })
+
+      res2.data.sort(function(a, b) {
+        if (a.updated_at < b.updated_at) {
+          return 1;
+        }
+
+        if (a.updated_at > b.updated_at) {
+          return -1;
+        }
+
+        return 0;
+      })
+
       setUserList(res1.data);
       setPendonor(res2.data);
       setSelfData(res3.data);
