@@ -34,7 +34,6 @@ const Home = () => {
     })
   }, []);
 
-  console.log('isi blood type: ', userList)
   return (
     <div>
       <div style={{ color: '#fff', margin: '15px 7.5%', fontSize: '18px', fontWeight: '700' }}>Anda meminta bantuan darah</div>
