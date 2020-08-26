@@ -25,6 +25,23 @@ const DonorDetail = (props) => {
     })
   }, [props.location.state.id]);
 
+  const handleTaken = (e) => {
+    e.preventDefault();
+    axios({
+      method: 'POST',
+      url: 'http://52.230.82.65:8000/api/donor/take',
+      data: {
+        id: props.location.state.id
+      }
+    })
+    .then(res => {
+      history.push({ pathname: '/' });
+    })
+    .catch(err => {
+      console.log('Error: ', err.message);
+    })
+  };
+
   return (
     <div style={{ position: 'relative' }}>
       <div onClick={() => history.goBack()} className="map-back" style={{ width: '50px', position: 'absolute', top: '20px', left: '20px' }}><img src={back} alt="Back" style={{ width: '100%' }} /></div>
@@ -33,6 +50,9 @@ const DonorDetail = (props) => {
         <img src={siloamMap} alt="Siloam Map" style={{ width: '100%' }} />
       </div>
       <div style={{ background: '#fff', position: 'relative', marginTop: '-5px', minHeight: '254px' }}>
+        <div style={{ position: 'absolute', top: '20px', right: '15px' }}>
+          <button className="take-button" onClick={handleTaken}>Take</button>
+        </div>
         <div style={{ width: '45px', position: 'absolute', left: '15px', top: '20px', }}>
           <img src={profile1} alt="profile" style={{ width: '100%' }} />
         </div>
