@@ -20,13 +20,19 @@ const CardList = ({ donor }) => {
       </div>
       <div style={{ padding: '10px 10px 10px 35px', color: '#23231f' }}>
         <div style={{ fontWeight: 900, fontSize: '26px', marginBottom: '3px' }}>{donor.user_name}</div>
-        <div style={{ fontSize: '15px', marginBottom: '15px' }}>{donor.updated_at}</div>
-        <div style={{ fontWeight: 500, fontSize: '18px', marginBottom: '15px' }}>{donor.description}</div>
+        <div style={{ fontSize: '15px', marginBottom: '15px' }}>
+          {`${donor.updated_at.substring(0, 10)} ${donor.updated_at.substring(11, 16)}`}
+        </div>
+        <div style={{ fontWeight: 500, fontSize: '18px', marginBottom: '15px' }}>
+          {donor.description.toString().trim().length > 70 ? donor.description.substring(0, 70) + '...' : donor.description}
+        </div>
         <div style={{ position: 'relative' }}>
           <div style={{ width: '20px', display: 'inline-block' }}>
             <img src={location} alt="location" style={{ width: '100%' }} />
           </div>
-          <div style={{ fontSize: '15px', display: 'inline-block', position: 'absolute', left: '24px', top: '0px' }}>{donor.hospital}</div>
+          <div style={{ fontSize: '15px', display: 'inline-block', position: 'absolute', left: '24px', top: '0px' }}>
+            {donor.hospital.toString().trim().length > 28 ? donor.hospital.substring(0, 28) + '...' : donor.hospital}
+          </div>
         </div>
       </div>
     </div>

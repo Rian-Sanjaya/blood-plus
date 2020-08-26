@@ -32,13 +32,15 @@ const DonorDetail = (props) => {
       <div className="map-box">
         <img src={siloamMap} alt="Siloam Map" style={{ width: '100%' }} />
       </div>
-      <div style={{ background: '#fff', position: 'relative', marginTop: '-5px', height: '254px' }}>
+      <div style={{ background: '#fff', position: 'relative', marginTop: '-5px', minHeight: '254px' }}>
         <div style={{ width: '45px', position: 'absolute', left: '15px', top: '20px', }}>
           <img src={profile1} alt="profile" style={{ width: '100%' }} />
         </div>
         <div style={{ padding: '20px 15px 30px 75px', color: '#23231f' }}>
           <div style={{ fontWeight: 900, fontSize: '26px', marginBottom: '3px' }}>{donor.user_name}</div>
-          <div style={{ fontSize: '15px', marginBottom: '15px' }}>{donor.updated_at}</div>
+          <div style={{ fontSize: '15px', marginBottom: '15px' }}>
+            {donor.updated_at && `${donor.updated_at.substring(0, 10)} ${donor.updated_at.substring(11, 16)}`}
+          </div>
           <div style={{ fontWeight: 500, fontSize: '18px', marginBottom: '15px' }}>{donor.description}</div>
           <div style={{ position: 'relative' }}>
             <div style={{ width: '20px', display: 'inline-block' }}>
